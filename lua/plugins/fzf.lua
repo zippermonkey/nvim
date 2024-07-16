@@ -2,6 +2,7 @@ return {
   "ibhagwan/fzf-lua",
   -- optional for icon support
   dependencies = { "nvim-tree/nvim-web-devicons" },
+  lazy = false,
   keys = {
     { "<leader>ff", "<cmd>FzfLua files<cr>",   mode = "n", desc = "[f]ind [f]iles" },
     { "<leader>fb", "<cmd>FzfLua buffers<cr>", mode = "n", desc = "[f]ind [b]uffers" },
