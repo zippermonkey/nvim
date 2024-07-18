@@ -2,8 +2,8 @@ return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   config = function()
-    require 'nvim-treesitter.configs'.setup {
-      ensure_installed = { "html", "css", "vim", "lua", "javascript", "typescript", "tsx", "c", "rust", "python" },
+    require('nvim-treesitter.configs').setup {
+      ensure_installed = { 'html', 'css', 'vim', 'lua', 'javascript', 'typescript', 'tsx', 'c', 'rust', 'python' },
       auto_install = true,
       highlight = {
         enable = true,
@@ -16,10 +16,10 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<CR>", -- set to `false` to disable one of the mappings
-          node_incremental = "<CR>",
-          scope_incremental = "<TAB>",
-          node_decremental = "<BS>",
+          init_selection = '<CR>', -- set to `false` to disable one of the mappings
+          node_incremental = '<CR>',
+          scope_incremental = '<TAB>',
+          node_decremental = '<BS>',
         },
       },
     }

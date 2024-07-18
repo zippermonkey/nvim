@@ -1,10 +1,10 @@
 return {
-  "williamboman/mason.nvim",
+  'williamboman/mason.nvim',
   config = function(name, info)
-    require("mason").setup {
+    require('mason').setup {
       ui = {
-        border = "rounded",
+        border = 'rounded',
       },
     }
-  end
+  end,
 }

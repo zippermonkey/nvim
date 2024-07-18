@@ -1,34 +1,34 @@
 return {
-  "hrsh7th/nvim-cmp",
+  'hrsh7th/nvim-cmp',
 
   dependencies = {
-    "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-nvim-lua",
-    "hrsh7th/cmp-nvim-lsp",
-    "onsails/lspkind.nvim",
-    "dcampos/cmp-snippy",
-    "dcampos/nvim-snippy",
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-nvim-lua',
+    'hrsh7th/cmp-nvim-lsp',
+    'onsails/lspkind.nvim',
+    'dcampos/cmp-snippy',
+    'dcampos/nvim-snippy',
   },
 
   config = function(name, info)
-    local cmp = require("cmp")
-    local lspkind = require("lspkind")
-    local snippy = require("snippy")
+    local cmp = require 'cmp'
+    local lspkind = require 'lspkind'
+    local snippy = require 'snippy'
 
     cmp.setup {
       preselect = cmp.PreselectMode.None,
       formatting = {
         format = lspkind.cmp_format {
-          mode = "symbol_text",
+          mode = 'symbol_text',
           menu = {
-            buffer = "[BUF]",
-            path = "[PTH]",
-            cmdline = "[CMD]",
-            nvim_lsp = "[LSP]",
-            nvim_lua = "[LUA]",
-            snippy = "[SNP]",
+            buffer = '[BUF]',
+            path = '[PTH]',
+            cmdline = '[CMD]',
+            nvim_lsp = '[LSP]',
+            nvim_lua = '[LUA]',
+            snippy = '[SNP]',
           },
         },
       },
@@ -38,16 +38,16 @@ return {
         end,
       },
       window = {
-        completion = cmp.config.window.bordered { border = "single" },
-        documentation = cmp.config.window.bordered { border = "double" },
+        completion = cmp.config.window.bordered { border = 'single' },
+        documentation = cmp.config.window.bordered { border = 'double' },
       },
       mapping = cmp.mapping.preset.insert {
-        ["<C-Space>"] = cmp.mapping.complete {},
-        ["<C-U>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-D>"] = cmp.mapping.scroll_docs(4),
-        ["<C-E>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm { select = false },
-        ["<Tab>"] = cmp.mapping(function(fallback)
+        ['<C-Space>'] = cmp.mapping.complete {},
+        ['<C-U>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-D>'] = cmp.mapping.scroll_docs(4),
+        ['<C-E>'] = cmp.mapping.abort(),
+        ['<CR>'] = cmp.mapping.confirm { select = false },
+        ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
           elseif snippy.can_expand_or_advance() then
@@ -55,8 +55,8 @@ return {
           else
             fallback()
           end
-        end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
+        end, { 'i', 's' }),
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
           elseif snippy.can_jump(-1) then
@@ -64,37 +64,33 @@ return {
           else
             fallback()
           end
-        end, { "i", "s" }),
+        end, { 'i', 's' }),
       },
-      sources = cmp.config.sources(
-        { { name = "snippy" }, { name = "nvim_lsp" } },
-        { { name = "nvim_lua" } },
-        { { name = "buffer" } }
-      ),
+      sources = cmp.config.sources({ { name = 'snippy' }, { name = 'nvim_lsp' } }, { { name = 'nvim_lua' } }, { { name = 'buffer' } }),
     }
 
     -- use <?> for which-key plugin
-    cmp.setup.cmdline({ "/", "?" }, {
+    cmp.setup.cmdline({ '/', '?' }, {
       mapping = cmp.mapping.preset.cmdline(),
       sources = {
-        { name = "buffer" },
+        { name = 'buffer' },
       },
     })
 
-    cmp.setup.cmdline(":", {
+    cmp.setup.cmdline(':', {
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
-        { name = "path", option = { trailing_slash = true } },
+        { name = 'path', option = { trailing_slash = true } },
       }, {
-        { name = "cmdline" },
+        { name = 'cmdline' },
       }),
     })
 
     pcall(function()
-      local autopairs = require("nvim-autopairs.completion.cmp")
-      cmp.event:on("confirm_done", autopairs.on_confirm_done { map_char = { tex = "" } })
+      local autopairs = require 'nvim-autopairs.completion.cmp'
+      cmp.event:on('confirm_done', autopairs.on_confirm_done { map_char = { tex = '' } })
     end)
 
-    vim.opt.completeopt = { "menu", "menuone", "noselect" }
-  end
+    vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+  end,
 }

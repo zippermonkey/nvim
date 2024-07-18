@@ -1,4 +1,4 @@
 return {
-  "sindrets/diffview.nvim",
-  config = true
+  'sindrets/diffview.nvim',
+  config = true,
 }

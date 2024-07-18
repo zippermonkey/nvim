@@ -4,11 +4,11 @@ return {
     'junegunn/fzf',
     build = function()
       vim.fn['fzf#install']()
-    end
+    end,
   },
   opts = {
     preview = {
-      auto_preview = false
-    }
-  }
+      auto_preview = false,
+    },
+  },
 }

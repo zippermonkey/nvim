@@ -1,7 +1,7 @@
 return {
   'rmagatti/auto-session',
   config = function()
-    require('auto-session').setup({
+    require('auto-session').setup {
       auto_session_create_enabled = function()
         local function check_directory_exists(directory_list)
           local current_directory = vim.fn.getcwd()
@@ -13,9 +13,9 @@ return {
           end
           return false
         end
-        local directory_list = { ".git", ".project", ".root" }
+        local directory_list = { '.git', '.project', '.root' }
         return check_directory_exists(directory_list)
       end,
-    })
+    }
   end,
 }
