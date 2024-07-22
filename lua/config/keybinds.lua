@@ -24,6 +24,12 @@ keymap('n', '<C-l>', '<C-w>l', opts)
 
 -- for tab
 keymap('n', '<leader>tc', ':tabc<cr>', opts)
+keymap('n', '<leader>tn', ':tabnext<cr>', opts)
+keymap('n', '<leader>tp', ':tabprevious<cr>', opts)
+
+-- for buffer
+keymap('n', '<leader>bn', ':bnext<cr>', opts)
+keymap('n', '<leader>bp', ':bprevious<cr>', opts)
 
 -- for indent
 keymap('v', '<', '<gv', opts)
