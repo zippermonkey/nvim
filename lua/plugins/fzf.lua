@@ -15,6 +15,7 @@ return {
     { '<leader>fc', '<cmd>FzfLua lgrep_curbuf<cr>', mode = 'n', desc = '[f]ind in [c]urbuf' },
 
     { '<leader>fd', '<cmd>FzfLua lsp_definitions<cr>', mode = 'n', desc = '[f]ind [d]efinitions with FzfLua' },
+    { 'D', '<cmd>FzfLua lsp_definitions<cr>', mode = 'n', desc = '[f]ind [d]efinitions with FzfLua' },
     { '<leader>fD', '<cmd>FzfLua lsp_declarations<cr>', mode = 'n', desc = '[f]ind [D]eclarations with FzfLua' },
     { '<leader>fr', '<cmd>FzfLua lsp_references<cr>', mode = 'n', desc = '[f]ind [r]eferences with FzfLua' },
     { '<leader>ws', '<cmd>FzfLua lsp_live_workspace_symbols<cr>', mode = 'n', desc = '[w]orkspace [s]ymbols with FzfLua' },

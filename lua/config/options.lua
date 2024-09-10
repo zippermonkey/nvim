@@ -27,4 +27,4 @@ vim.opt.smartcase = true -- but make it case sensitive if an uppercase is entere
 -- vim.opt.list = true
 -- vim.opt.listchars = { tab = '→ ', trail = '·', extends = '>', precedes = '<' }
 -- vim.opt.fillchars:append { diff = "╱" }
-vim.opt.fillchars:append { diff = " " }
+vim.opt.fillchars:append { diff = ' ' }
