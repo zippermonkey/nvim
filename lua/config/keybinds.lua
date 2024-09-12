@@ -30,6 +30,7 @@ keymap('n', '<leader>tp', ':tabprevious<cr>', opts)
 -- for buffer
 keymap('n', '<leader>bn', ':bnext<cr>', opts)
 keymap('n', '<leader>bp', ':bprevious<cr>', opts)
+keymap('n', '<leader>bd', ':bd<cr>', opts)
 
 -- for indent
 keymap('v', '<', '<gv', opts)
