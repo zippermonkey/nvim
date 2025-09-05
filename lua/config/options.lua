@@ -19,3 +19,4 @@ vim.opt.swapfile = false -- 禁用交换文件
 vim.opt.signcolumn = 'yes' -- will use 4 columns.
 vim.g.clipboard = 'osc52'
 vim.opt.clipboard = 'unnamedplus'
+vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
