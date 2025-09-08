@@ -95,6 +95,13 @@ return {
       mode = 'n',
       desc = '[G]oto [T]ype Definition',
     },
+    {
+      'K',
+      function()
+        vim.lsp.buf.hover { border = 'single', max_height = 25, max_width = 120 }
+      end,
+      desc = 'Hover documentation',
+    },
   },
   config = function()
     vim.lsp.config('*', {
