@@ -3,4 +3,4 @@ require 'config.keymap'
 require 'config.lazy'
 
 -- set colorscheme
-vim.cmd 'colorscheme terafox'
+vim.cmd 'colorscheme nightfox'
