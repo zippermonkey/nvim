@@ -17,6 +17,7 @@ vim.opt.clipboard = 'unnamedplus'
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal'
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.o.cc = '80,100'
 
 -- autocmd
 vim.api.nvim_create_autocmd({ 'BufLeave', 'InsertLeave' }, {
