@@ -1,7 +1,17 @@
 return {
   'coder/claudecode.nvim',
   dependencies = { 'folke/snacks.nvim' },
-  config = true,
+  opts = {
+    terminal = {
+      snacks_win_opts = {
+        position = 'float',
+        width = 0.6,
+        height = 0.6,
+        border = 'double',
+        backdrop = 80,
+      },
+    },
+  },
   keys = {
     { '<leader>a', nil, desc = 'AI/Claude Code' },
     { '<leader>ac', '<cmd>ClaudeCode<cr>', desc = 'Toggle Claude' },

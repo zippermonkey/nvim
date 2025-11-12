@@ -82,7 +82,14 @@ return {
       '<leader>fs',
       require('fzf-lua').lsp_live_workspace_symbols,
       mode = 'n',
-      desc = '[F]ind [W]orkspace Symbols',
+      desc = '[F]ind Workspace [S]ymbols',
+    },
+
+    {
+      '<leader>ss',
+      require('fzf-lua').lsp_live_workspace_symbols,
+      mode = 'n',
+      desc = '[S]earch Workspace [S]ymbols',
     },
 
     -- Jump to the type of the word under your cursor.

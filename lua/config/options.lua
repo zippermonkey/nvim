@@ -1,22 +1,30 @@
--- 基础设置
-vim.g.mapleader = ' ' -- 设置 leader 键为空格
-vim.opt.number = true -- 显示行号
-vim.opt.tabstop = 4 -- Tab 显示为 2 个空格
-vim.opt.shiftwidth = 4 -- 自动缩进为 2 个空格
-vim.opt.expandtab = true -- 将 Tab 转为空格
-vim.opt.smartindent = true -- 智能缩进
-vim.opt.cursorline = true -- 高亮当前行
-vim.opt.termguicolors = true -- 启用 24 位颜色支持
-vim.opt.ignorecase = true -- 搜索忽略大小写
-vim.opt.smartcase = true -- 智能大小写区分
-vim.opt.incsearch = true -- 增量搜索
-vim.opt.hlsearch = true -- 高亮搜索结果
-vim.opt.encoding = 'utf-8' -- 设置文件编码
+vim.opt.number = true
+vim.opt.smartindent = true
+vim.opt.cursorline = true
+vim.opt.termguicolors = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
-vim.opt.backup = false -- 禁用备份
-vim.opt.writebackup = false -- 禁用写入备份
-vim.opt.swapfile = false -- 禁用交换文件
-vim.opt.signcolumn = 'yes' -- will use 4 columns.
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.swapfile = false
+vim.opt.signcolumn = 'yes'
 vim.g.clipboard = 'osc52'
 vim.opt.clipboard = 'unnamedplus'
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+
+-- autocmd
+vim.api.nvim_create_autocmd({ 'BufLeave', 'InsertLeave' }, {
+  group = vim.api.nvim_create_augroup('AutoSaveOnLeave', { clear = true }),
+  callback = function()
+    -- 仅当缓冲区被修改且不是只读时才保存
+    if vim.bo.modified and not vim.bo.readonly then
+      vim.cmd 'write' -- 执行保存命令
+    end
+  end,
+  pattern = { '*' }, -- 适用于所有缓冲区
+  desc = 'Auto save on leaving buffer or insert mode',
+})
