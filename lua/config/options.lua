@@ -14,7 +14,7 @@ vim.opt.swapfile = false
 vim.opt.signcolumn = 'yes'
 vim.g.clipboard = 'osc52'
 vim.opt.clipboard = 'unnamedplus'
-vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal'
 
 -- autocmd
 vim.api.nvim_create_autocmd({ 'BufLeave', 'InsertLeave' }, {
