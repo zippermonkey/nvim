@@ -43,11 +43,17 @@ return { -- Useful plugin to show you pending keybinds.
       },
     },
     spec = {
-      { '<leader>f', group = '[F]ind' },
-      { '<leader>t', group = '[T]oggle' },
-      { '<leader>g', group = '[G]oto' },
+      { '<leader>a', group = 'AI/Claude' },
       { '<leader>b', group = '[B]uffer' },
+      { '<leader>c', group = '[C]ode' },
+      { '<leader>e', group = '[E]xplorer' },
+      { '<leader>f', group = '[F]ind' },
+      { '<leader>g', group = '[G]it' },
+      { '<leader>l', group = '[L]SP' },
+      { '<leader>r', group = '[R]esume' },
+      { '<leader>t', group = '[T]ab' },
       { '<leader>w', group = '[W]indow' },
+      { '<leader>x', group = 'Diagnostics' },
     },
 
     -- Document existing key chains

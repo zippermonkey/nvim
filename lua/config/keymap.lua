@@ -6,12 +6,6 @@ keymap('', '<Space>', '<Nop>', 'unset <space>')
 keymap('i', 'jj', '<ESC>', 'quick back to normal mode')
 keymap('i', 'kk', '<ESC>', 'quick back to normal mode')
 
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = '\\'
-
 -- for window manage
 keymap('n', '<leader>ws', ':sp<CR>', '[w]indow [s]pilt horizontally')
 keymap('n', '<leader>wv', ':vsp<CR>', '[w]indow [s]pilt vertically')

@@ -4,7 +4,7 @@ return { -- PLUGIN: Autoformat
   cmd = { 'ConformInfo' },
   keys = {
     {
-      '<leader>ft',
+      '<leader>cf',
       function()
         require('conform').format {
           async = true,
@@ -12,7 +12,7 @@ return { -- PLUGIN: Autoformat
         }
       end,
       mode = '',
-      desc = '[F]orma[t] buffer',
+      desc = '[C]ode [f]ormat',
     },
   },
   opts = {

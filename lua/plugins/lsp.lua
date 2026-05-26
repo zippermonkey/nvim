@@ -7,100 +7,36 @@ return {
   },
   event = { 'BufReadPre', 'BufNewFile' },
   keys = {
-    -- Rename the variable under your cursor.
-    --  Most Language Servers support renaming across files, etc.
-    { '<leader>gn', vim.lsp.buf.rename, mode = 'n', desc = '[R]e[n]ame' },
-
-    -- Execute a code action, usually your cursor needs to be on top of an error
-    -- or a suggestion from your LSP for this to activate.
+    -- Non-leader LSP (direct normal-mode keys)
     {
-      '<leader>ga',
-      vim.lsp.buf.code_action,
-      mode = { 'n', 'x' },
-      desc = '[G]oto Code [A]ction',
-    },
-
-    -- Find references for the word under your cursor.
-    {
-      '<leader>gr',
-      require('fzf-lua').lsp_references,
-      mode = 'n',
-      desc = '[G]oto [R]eferences',
-    },
-    {
-      '<leader>fr',
-      require('fzf-lua').lsp_references,
-      mode = 'n',
-      desc = '[F]ind [R]eferences',
-    },
-
-    -- Jump to the implementation of the word under your cursor.
-    --  Useful when your language has ways of declaring types without an actual implementation.
-    -- map("<leader>gi", require("fzf-lua").lsp_implementations, "[G]oto [I]mplementation")
-    {
-      '<leader>gi',
-      require('fzf-lua').lsp_implementations,
-      mode = 'n',
-      desc = '[G]oto [I]mplementation',
-    },
-
-    -- Jump to the definition of the word under your cursor.
-    --  This is where a variable was first declared, or where a function is defined, etc.
-    --  To jump back, press <C-t>.
-    -- map("<leader>gd", require("fzf-lua").lsp_definitions, "[G]oto [D]efinition")
-    {
-      '<leader>gd',
+      'gd',
       require('fzf-lua').lsp_definitions,
       mode = 'n',
-      desc = '[G]oto [D]efinition',
+      desc = 'LSP [d]efinition',
     },
-
-    -- WARN: This is not Goto Definition, this is Goto Declaration.
-    --  For example, in C this would take you to the header.
-    -- map("<leader>gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
     {
-      '<leader>gD',
+      'gD',
       vim.lsp.buf.declaration,
       mode = 'n',
-      desc = '[G]oto [D]eclaration',
+      desc = 'LSP [D]eclaration',
     },
-
-    -- Fuzzy find all the symbols in your current document.
-    --  Symbols are things like variables, functions, types, etc.
-    -- map("<leader>fd", require("fzf-lua").lsp_document_symbols, "[F]ind [D]ocument Symbols")
     {
-      '<leader>fd',
-      require('fzf-lua').lsp_document_symbols,
+      'gr',
+      require('fzf-lua').lsp_references,
       mode = 'n',
-      desc = '[F]ind [D]ocument Symbols',
+      desc = 'LSP [r]eferences',
     },
-
-    -- Fuzzy find all the symbols in your current workspace.
-    --  Similar to document symbols, except searches over your entire project.
-    -- map("<leader>fs", require("fzf-lua").lsp_live_workspace_symbols, "[F]ind [W]orkspace Symbols")
     {
-      '<leader>fs',
-      require('fzf-lua').lsp_live_workspace_symbols,
+      'gi',
+      require('fzf-lua').lsp_implementations,
       mode = 'n',
-      desc = '[F]ind Workspace [S]ymbols',
+      desc = 'LSP [i]mplementations',
     },
-
     {
-      '<leader>ss',
-      require('fzf-lua').lsp_live_workspace_symbols,
-      mode = 'n',
-      desc = '[S]earch Workspace [S]ymbols',
-    },
-
-    -- Jump to the type of the word under your cursor.
-    --  Useful when you're not sure what type a variable is and you want to see
-    --  the definition of its *type*, not where it was *defined*.
-    -- map("<leader>gt", require("fzf-lua").lsp_typedefs, "[G]oto [T]ype Definition")
-    {
-      '<leader>gt',
+      'gy',
       require('fzf-lua').lsp_typedefs,
       mode = 'n',
-      desc = '[G]oto [T]ype Definition',
+      desc = 'LSP t[y]pe definition',
     },
     {
       'K',
@@ -109,6 +45,18 @@ return {
       end,
       desc = 'Hover documentation',
     },
+
+    -- Leader LSP (<leader>l)
+    { '<leader>l', group = 'LSP' },
+    { '<leader>ld', require('fzf-lua').lsp_definitions, mode = 'n', desc = '[d]efinition' },
+    { '<leader>lD', vim.lsp.buf.declaration, mode = 'n', desc = '[D]eclaration' },
+    { '<leader>lr', require('fzf-lua').lsp_references, mode = 'n', desc = '[r]eferences' },
+    { '<leader>li', require('fzf-lua').lsp_implementations, mode = 'n', desc = '[i]mplementations' },
+    { '<leader>lt', require('fzf-lua').lsp_typedefs, mode = 'n', desc = '[t]ype definition' },
+    { '<leader>ls', require('fzf-lua').lsp_document_symbols, mode = 'n', desc = 'document [s]ymbols' },
+    { '<leader>lS', require('fzf-lua').lsp_live_workspace_symbols, mode = 'n', desc = 'workspace [S]ymbols' },
+    { '<leader>ln', vim.lsp.buf.rename, mode = 'n', desc = 're[n]ame' },
+    { '<leader>la', vim.lsp.buf.code_action, mode = { 'n', 'x' }, desc = 'code [a]ction' },
   },
   config = function()
     vim.lsp.config('*', {

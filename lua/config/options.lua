@@ -1,4 +1,8 @@
+vim.g.mapleader = ' '
+vim.g.maplocalleader = '\\'
+
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.smartindent = true
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
@@ -18,6 +22,16 @@ vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.o.cc = '80,100'
+
+vim.o.updatetime = 300
+vim.o.timeoutlen = 300
+vim.o.mouse = 'a'
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.scrolloff = 4
+vim.opt.sidescrolloff = 8
+vim.opt.inccommand = 'split'
+vim.opt.undofile = true
 
 -- autocmd
 vim.api.nvim_create_autocmd({ 'BufLeave', 'InsertLeave' }, {
