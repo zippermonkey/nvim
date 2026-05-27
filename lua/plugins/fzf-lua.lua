@@ -4,6 +4,7 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons', 'folke/trouble.nvim' },
   keys = {
     { '<leader>ff', '<cmd>FzfLua files<cr>', mode = 'n', desc = '[f]ind [f]iles' },
+    { '<leader><leader>', '<cmd>FzfLua files<cr>', mode = 'n', desc = '[f]ind [f]iles' },
     {
       '<leader>fn',
       function()

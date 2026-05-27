@@ -2,6 +2,11 @@ return {
   'folke/trouble.nvim',
   opts = {
     auto_preview = false,
+    modes = {
+      lsp_base = {
+        params = { include_current = true },
+      },
+    },
   }, -- for default options, refer to the configuration section for custom setup.
   cmd = 'Trouble',
   keys = {
@@ -21,8 +26,9 @@ return {
       desc = 'Symbols (Trouble)',
     },
     {
-      '<leader>xr',
-      '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
+      'R',
+      -- '<cmd>Trouble lsp toggle lsp_references auto_refresh=false<cr>',
+      '<cmd>Trouble lsp lsp_references auto_refresh=false win.position=right<cr>',
       desc = 'LSP References (Trouble)',
     },
     {

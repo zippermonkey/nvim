@@ -73,6 +73,14 @@ return {
       window = { border = 'rounded' },
     },
 
+    cmdline = {
+      enabled = true,
+      sources = function()
+        return { 'cmdline' }
+      end,
+      completion = { menu = { auto_show = true } },
+    },
+
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
       providers = {
