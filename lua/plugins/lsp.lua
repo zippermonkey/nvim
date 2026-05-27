@@ -59,13 +59,10 @@ return {
     { '<leader>la', vim.lsp.buf.code_action, mode = { 'n', 'x' }, desc = 'code [a]ction' },
   },
   config = function()
-    vim.lsp.config('*', {
-      capabilities = vim.lsp.protocol.make_client_capabilities(),
-    })
-
     require('mason').setup()
-    require('mason-lspconfig').setup {
-      ensure_installed = { 'rust_analyzer', 'lua_ls' },
+    local mason_lspconfig = require 'mason-lspconfig'
+    mason_lspconfig.setup {
+      -- ensure_installed = { 'rust_analyzer', 'lua_ls' },
     }
   end,
 }

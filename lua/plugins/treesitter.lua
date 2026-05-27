@@ -7,8 +7,16 @@ return {
     event = { 'BufReadPost', 'BufNewFile' },
     config = function()
       require('nvim-treesitter').install {
-        'html', 'css', 'vim', 'lua', 'javascript', 'typescript',
-        'tsx', 'c', 'rust', 'python',
+        'html',
+        'css',
+        'vim',
+        'lua',
+        'javascript',
+        'typescript',
+        'tsx',
+        'c',
+        'rust',
+        'python',
       }
     end,
   },
@@ -44,8 +52,8 @@ return {
         move = { set_jumps = true },
       }
 
-      local select = require('nvim-treesitter-textobjects.select')
-      local move = require('nvim-treesitter-textobjects.move')
+      local select = require 'nvim-treesitter-textobjects.select'
+      local move = require 'nvim-treesitter-textobjects.move'
 
       -- Select text objects (operator-pending + visual mode)
       local select_keys = {
