@@ -28,7 +28,7 @@ return {
     {
       'R',
       -- '<cmd>Trouble lsp toggle lsp_references auto_refresh=false<cr>',
-      '<cmd>Trouble lsp lsp_references auto_refresh=false win.position=right<cr>',
+      '<cmd>Trouble lsp lsp_references auto_refresh=false<cr>',
       desc = 'LSP References (Trouble)',
     },
     {
