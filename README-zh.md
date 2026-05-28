@@ -41,31 +41,31 @@
 - **auto-session.nvim** - 自动会话管理（仅在 git/项目目录中）
 
 ### 配色方案
-- **rose-pine** - 清新优雅的配色方案
+- **nightfox** - 当前使用的现代暗色主题
 
 ## ⌨️ 快捷键映射
 
 ### Leader 键
 - `<Space>` - Leader 键
 
-### 窗口导航
+### 窗口管理 (`<leader>w`)
 - `<C-h/j/k/l>` - 在窗口间导航
 - `<leader>wh/j/k/l` - 备用窗口导航
 - `<leader>ws` - 水平分割窗口
 - `<leader>wv` - 垂直分割窗口
 - `<leader>wc` - 关闭窗口
 
-### 缓冲区管理
+### 缓冲区管理 (`<leader>b`)
 - `<leader>bn` - 下一个缓冲区
 - `<leader>bp` - 上一个缓冲区
 - `<leader>bd` - 删除缓冲区
 
-### 标签页管理
+### 标签页管理 (`<leader>t`)
 - `<leader>tn` - 下一个标签页
 - `<leader>tp` - 上一个标签页
 - `<leader>tc` - 关闭标签页
 
-### 文件与项目导航 (`<leader>f` - Find)
+### 文件与项目搜索 (`<leader>f`)
 - `<leader>ff` - 查找文件
 - `<leader>fn` - 查找 Neovim 配置文件
 - `<leader>fb` - 查找缓冲区
@@ -75,19 +75,44 @@
 - `<leader>f/` - 在当前缓冲区中搜索
 - `<leader>fk` - 查找快捷键映射
 - `<leader>fl` - 打开 FZF-Lua 选择器
-- `<leader>rr` - 恢复上次搜索
 
-### LSP (`<leader>g` - Goto, `<leader>f` - Find)
-- `<leader>gd` - 跳转到定义
-- `<leader>gD` - 跳转到声明
-- `<leader>gi` - 跳转到实现
-- `<leader>gt` - 跳转到类型定义
-- `<leader>gr` - 查找引用
-- `<leader>ga` - 代码操作
-- `<leader>fd` - 查找文档符号
-- `<leader>fs` - 查找工作区符号
-- `<leader>fr` - 查找引用（备选）
+### LSP 跳转与查找 (`<leader>l` 及非 Leader 按键)
+- `gd` - 跳转到定义
+- `gD` - 跳转到声明
+- `gr` - 查找引用
+- `gi` - 跳转到实现
+- `gy` - 跳转到类型定义
 - `K` - 悬停文档
+- `<leader>ld` - 定义 (fzf-lua)
+- `<leader>lD` - 声明 (fzf-lua)
+- `<leader>lr` - 引用 (fzf-lua)
+- `<leader>li` - 实现 (fzf-lua)
+- `<leader>lt` - 类型定义 (fzf-lua)
+- `<leader>ls` - 文档符号 (fzf-lua)
+- `<leader>lS` - 工作区符号 (fzf-lua)
+- `<leader>ln` - 重命名
+- `<leader>la` - 代码操作
+
+### 代码操作 (`<leader>c`)
+- `<leader>cf` - 格式化缓冲区
+- `<leader>ca` - 代码操作
+- `<leader>cn` - 重命名符号
+
+### Git (`<leader>g`)
+- `<leader>gg` - Git 状态 (Neogit)
+- `<leader>gb` - Git 指责
+
+### 诊断 (`<leader>x`)
+- `<leader>xx` - 切换 Trouble 诊断列表
+- `<leader>xX` - 切换缓冲区诊断
+- `<leader>xL` - 切换位置列表
+- `<leader>xQ` - 切换快速修复列表
+
+### 文件浏览器
+- `<leader>e` - 切换文件树 (nvim-tree)
+
+### 搜索恢复
+- `<leader>rr` - 恢复上次搜索
 
 ### Flash 导航
 - `s` - Flash 跳转
@@ -95,21 +120,6 @@
 - `r` - 远程 flash（操作符模式）
 - `R` - Treesitter 搜索
 - `<C-s>` - 切换 Flash 搜索（命令模式）
-
-### 代码质量
-- `<leader>ft` - 格式化缓冲区
-- `<leader>xx` - 切换 Trouble 诊断
-- `<leader>xX` - 切换缓冲区诊断
-- `<leader>cs` - 切换符号（Trouble）
-- `<leader>cl` - 切换 LSP 定义/引用
-- `<leader>xL` - 切换位置列表
-- `<leader>xQ` - 切换快速修复列表
-
-### 文件管理
-- `<leader>te` - 切换文件树
-
-### Git (Neogit)
-- `:Neogit` - 打开 Git 接口
 
 ### 便利功能
 - `jj` / `kk` - 退出插入模式
@@ -143,7 +153,9 @@ nvim/
 │       ├── blame.lua        # Git 指责
 │       ├── flash.lua        # 快速导航
 │       └── ibl.lua          # 缩进指引
-├── CLAUDE.md               # Claude Code 指南
+├── lsp/                     # LSP 服务器配置（未自动加载）
+│   ├── rust_analyzer.lua
+│   └── lua_ls.lua
 └── README-zh.md            # 此文件
 ```
 
@@ -165,11 +177,9 @@ nvim/
    nvim
    ```
 
-4. 安装 LSP 服务器（可选）：
-   ```bash
-   :Mason
-   ```
-   然后安装所需的服务器（例如 `rust_analyzer`、`lua_ls`）
+4. LSP 服务器（已自动安装）：
+   - Mason 会自动安装 `rust_analyzer` 和 `lua_ls`。
+   - 如需其他服务器，运行 `:Mason` 手动安装。
 
 ## 🎨 特性
 
