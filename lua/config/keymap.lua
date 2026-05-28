@@ -6,6 +6,7 @@ keymap('', '<Space>', '<Nop>', 'unset <space>')
 keymap('i', 'jj', '<ESC>', 'quick back to normal mode')
 keymap('i', 'kk', '<ESC>', 'quick back to normal mode')
 
+keymap('t', 'jj', "<C-\\><C-n>", 'quick back to normal mode')
 -- for window manage
 keymap('n', '<leader>ws', ':sp<CR>', '[w]indow [s]pilt horizontally')
 keymap('n', '<leader>wv', ':vsp<CR>', '[w]indow [s]pilt vertically')
@@ -19,6 +20,11 @@ keymap('n', '<C-h>', '<C-w>h', '[w]indow [h]')
 keymap('n', '<C-j>', '<C-w>j', '[w]indow [j]')
 keymap('n', '<C-k>', '<C-w>k', '[w]indow [k]')
 keymap('n', '<C-l>', '<C-w>l', '[w]indow [l]')
+
+keymap("t", "<C-h>", "<C-\\><C-n><C-w>h")
+keymap("t", "<C-j>", "<C-\\><C-n><C-w>j")
+keymap("t", "<C-k>", "<C-\\><C-n><C-w>k")
+keymap("t", "<C-l>", "<C-\\><C-n><C-w>l")
 
 -- for tab
 keymap('n', '<leader>tc', ':tabc<cr>', '[t]ab close')
@@ -36,3 +42,32 @@ keymap('v', '>', '>gv', '')
 
 -- for hlsearch
 keymap('n', '<ESC>', ':noh<CR>', '')
+
+-- copy file path with line range (e.g. @foo/bar.py#L12-45) for AI CLI tools
+local function copy_file_range()
+  local file = vim.fn.expand('%:.') -- relative path
+  local start_line = vim.fn.line('v')
+  local end_line = vim.fn.line('.')
+  if start_line > end_line then
+    start_line, end_line = end_line, start_line
+  end
+  local text
+  if start_line == end_line then
+    text = '@' .. file .. '#L' .. start_line
+  else
+    text = '@' .. file .. '#L' .. start_line .. '-' .. end_line
+  end
+  vim.fn.setreg('+', text)
+  vim.notify('Copied: ' .. text, vim.log.levels.INFO, { title = 'AI Ref' })
+end
+keymap('v', '<leader>y', copy_file_range, '[Y]ank AI file ref')
+
+
+keymap("n", "<C-t>", function()
+  local term_buf = vim.fn.bufnr("^term://")
+  if term_buf > -1 and vim.fn.bufwinnr(term_buf) > -1 then
+    vim.api.nvim_set_current_buf(term_buf)  -- 切换到已有终端
+  else
+    vim.cmd("botright split | terminal")    -- 或者用 vsplit
+  end
+end)
