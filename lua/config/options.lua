@@ -18,10 +18,11 @@ vim.opt.swapfile = false
 vim.opt.signcolumn = 'yes'
 vim.g.clipboard = 'osc52'
 vim.opt.clipboard = 'unnamedplus'
-vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,options'
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions,options"
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.o.cc = '80,100'
+vim.o.hidden = true
 
 vim.o.updatetime = 300
 vim.o.timeoutlen = 300
