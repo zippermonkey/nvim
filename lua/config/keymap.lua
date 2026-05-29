@@ -21,11 +21,6 @@ keymap('n', '<C-j>', '<C-w>j', '[w]indow [j]')
 keymap('n', '<C-k>', '<C-w>k', '[w]indow [k]')
 keymap('n', '<C-l>', '<C-w>l', '[w]indow [l]')
 
-keymap("t", "<C-h>", "<C-\\><C-n><C-w>h")
-keymap("t", "<C-j>", "<C-\\><C-n><C-w>j")
-keymap("t", "<C-k>", "<C-\\><C-n><C-w>k")
-keymap("t", "<C-l>", "<C-\\><C-n><C-w>l")
-
 -- for tab
 keymap('n', '<leader>tc', ':tabc<cr>', '[t]ab close')
 keymap('n', '<leader>tn', ':tabnext<cr>', '[t]ab next')
@@ -63,11 +58,4 @@ end
 keymap('v', '<leader>y', copy_file_range, '[Y]ank AI file ref')
 
 
-keymap("n", "<C-t>", function()
-  local term_buf = vim.fn.bufnr("^term://")
-  if term_buf > -1 and vim.fn.bufwinnr(term_buf) > -1 then
-    vim.api.nvim_set_current_buf(term_buf)  -- 切换到已有终端
-  else
-    vim.cmd("botright split | terminal")    -- 或者用 vsplit
-  end
-end)
+-- terminal toggle is now handled by toggleterm plugin (C-t)
