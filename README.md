@@ -37,8 +37,14 @@ A personal Neovim configuration using Lua with lazy.nvim as the plugin manager. 
 ### Code Formatting
 - **conform.nvim** - Asynchronous code formatting with LSP fallback
 
+### Terminal Management
+- **toggleterm.nvim** - Terminal manager with horizontal/vertical/float layouts
+
 ### Session Management
 - **auto-session.nvim** - Automatic session management (only in git/project directories)
+  - Handles nvim-tree close/reopen on session restore
+  - Handles toggleterm close/reinit on session restore
+  - Manually triggers `BufReadPost` for restored buffers to fix treesitter highlighting
 
 ### Colorscheme
 - **rose-pine** - Clean, elegant colorscheme
@@ -108,6 +114,12 @@ A personal Neovim configuration using Lua with lazy.nvim as the plugin manager. 
 ### File Management
 - `<leader>te` - Toggle file tree
 
+### Terminal
+- `<C-t>` - Toggle terminal
+- `<leader>th` - Horizontal terminal
+- `<leader>tv` - Vertical terminal
+- `<leader>tf` - Floating terminal
+
 ### Git (Neogit)
 - `:Neogit` - Open Git interface
 
@@ -142,6 +154,7 @@ nvim/
 │       ├── auto-session.lua # Session management
 │       ├── blame.lua        # Git blame
 │       ├── flash.lua        # Quick navigation
+│       ├── toggleterm.lua   # Terminal manager
 │       └── ibl.lua          # Indent guides
 ├── CLAUDE.md               # Claude Code guidance
 └── README.md               # This file
@@ -178,6 +191,6 @@ nvim/
 - **Powerful fuzzy finding** with fzf-lua
 - **Modern LSP experience** with automatic server management
 - **Git integration** with multiple tools
-- **Session management** that respects git repositories
+- **Session management** that respects git repositories with proper plugin restore
 - **Clean visual indicators** with treesitter and indent guides
 - **Minimal distractions** with carefully chosen defaults
