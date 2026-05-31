@@ -37,8 +37,14 @@
 ### 代码格式化
 - **conform.nvim** - 异步代码格式化，支持 LSP 回退
 
+### 终端管理
+- **toggleterm.nvim** - 终端管理器，支持水平/垂直/浮动布局
+
 ### 会话管理
 - **auto-session.nvim** - 自动会话管理（仅在 git/项目目录中）
+  - 恢复会话时自动关闭并重新打开 nvim-tree
+  - 恢复会话时自动关闭并重新初始化 toggleterm
+  - 手动触发 `BufReadPost` 事件，修复懒加载 treesitter 的语法高亮丢失
 
 ### 配色方案
 - **nightfox** - 当前使用的现代暗色主题
@@ -111,6 +117,12 @@
 ### 文件浏览器
 - `<leader>e` - 切换文件树 (nvim-tree)
 
+### 终端
+- `<C-t>` - 切换终端
+- `<leader>th` - 水平终端
+- `<leader>tv` - 垂直终端
+- `<leader>tf` - 浮动终端
+
 ### 搜索恢复
 - `<leader>rr` - 恢复上次搜索
 
@@ -152,6 +164,7 @@ nvim/
 │       ├── auto-session.lua # 会话管理
 │       ├── blame.lua        # Git 指责
 │       ├── flash.lua        # 快速导航
+│       ├── toggleterm.lua   # 终端管理器
 │       └── ibl.lua          # 缩进指引
 ├── lsp/                     # LSP 服务器配置（未自动加载）
 │   ├── rust_analyzer.lua
@@ -188,6 +201,6 @@ nvim/
 - **强大的模糊查找**，使用 fzf-lua
 - **现代 LSP 体验**，支持自动服务器管理
 - **Git 集成**，包含多个工具
-- **会话管理**，识别 git 仓库
+- **会话管理**，识别 git 仓库，支持插件状态恢复
 - **清晰的视觉指示器**，使用 treesitter 和缩进指引
 - **极简干扰**，精心选择的默认设置
