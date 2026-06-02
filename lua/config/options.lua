@@ -63,3 +63,13 @@ vim.diagnostic.config {
     end,
   },
 }
+
+
+-- 设置自动读取文件变动
+vim.o.autoread = true
+
+-- 当焦点返回 Neovim 或者切换 Buffer 时检查文件变动
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+  pattern = "*",
+  command = "checktime",
+})
