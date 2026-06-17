@@ -54,6 +54,7 @@ local function copy_file_range()
   end
   vim.fn.setreg('+', text)
   vim.notify('Copied: ' .. text, vim.log.levels.INFO, { title = 'AI Ref' })
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, false, true), 'nx', false)
 end
 keymap('v', '<leader>y', copy_file_range, '[Y]ank AI file ref')
 
