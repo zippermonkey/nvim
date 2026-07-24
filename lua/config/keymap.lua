@@ -16,10 +16,10 @@ keymap('n', '<leader>wj', '<C-w>j', '[w]indow [j]')
 keymap('n', '<leader>wk', '<C-w>k', '[w]indow [k]')
 keymap('n', '<leader>wl', '<C-w>l', '[w]indow [l]')
 
-keymap('n', '<C-h>', '<C-w>h', '[w]indow [h]')
-keymap('n', '<C-j>', '<C-w>j', '[w]indow [j]')
-keymap('n', '<C-k>', '<C-w>k', '[w]indow [k]')
-keymap('n', '<C-l>', '<C-w>l', '[w]indow [l]')
+-- keymap('n', '<C-h>', '<C-w>h', '[w]indow [h]')
+-- keymap('n', '<C-j>', '<C-w>j', '[w]indow [j]')
+-- keymap('n', '<C-k>', '<C-w>k', '[w]indow [k]')
+-- keymap('n', '<C-l>', '<C-w>l', '[w]indow [l]')
 
 -- for tab
 keymap('n', '<leader>tc', ':tabc<cr>', '[t]ab close')
